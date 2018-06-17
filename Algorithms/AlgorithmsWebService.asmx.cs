@@ -87,10 +87,10 @@ namespace Algorithms
             Console.WriteLine(string.Join(" ",arr));
         }
 
-        //TODO: soap'ta request'e array geçmek. bak buna
+        //TODO: soap'ta request'e array geçmek.
         [WebMethod]
         public int[] IntArraySort(int[] arr)
-        {
+        { //anla bunu.
             int[] arr2 = { 800, 11, 50, 771, 649, 770, 240, 9 };
 
             int temp = 0;

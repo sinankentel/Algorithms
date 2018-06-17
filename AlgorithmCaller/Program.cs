@@ -23,7 +23,7 @@ namespace AlgorithmCaller
             //CallerClass.ArraySort(ArrayGenerators.OneDimensionRandomArrayGenerator(5, 0, 10));
 
             CallerClass.StaircaseHackerRank();
-
+            
             Console.ReadLine();
 
         }
