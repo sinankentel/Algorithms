@@ -87,7 +87,7 @@ namespace Algorithms
             Console.WriteLine(string.Join(" ",arr));
         }
 
-        //TODO: soap'ta request'e array geçmek.
+        //TODO: soap'ta request'e array geçmek. bak buna
         [WebMethod]
         public int[] IntArraySort(int[] arr)
         {
