@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Sum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="a" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="b" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SumResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SimpleArraySum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ar" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SimpleArraySumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SimpleArraySumResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompareTheTriplets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="firstGroup" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="secondGroup" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="sizeOfArray" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompareTheTripletsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CompareTheTripletsResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DiagonalDifference">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="a" type="tns:ArrayOfArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfInt" nillable="true" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DiagonalDifferenceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DiagonalDifferenceResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StairCase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="n" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StairCaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SumSoapIn">
+    <wsdl:part name="parameters" element="tns:Sum" />
+  </wsdl:message>
+  <wsdl:message name="SumSoapOut">
+    <wsdl:part name="parameters" element="tns:SumResponse" />
+  </wsdl:message>
+  <wsdl:message name="SimpleArraySumSoapIn">
+    <wsdl:part name="parameters" element="tns:SimpleArraySum" />
+  </wsdl:message>
+  <wsdl:message name="SimpleArraySumSoapOut">
+    <wsdl:part name="parameters" element="tns:SimpleArraySumResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompareTheTripletsSoapIn">
+    <wsdl:part name="parameters" element="tns:CompareTheTriplets" />
+  </wsdl:message>
+  <wsdl:message name="CompareTheTripletsSoapOut">
+    <wsdl:part name="parameters" element="tns:CompareTheTripletsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DiagonalDifferenceSoapIn">
+    <wsdl:part name="parameters" element="tns:DiagonalDifference" />
+  </wsdl:message>
+  <wsdl:message name="DiagonalDifferenceSoapOut">
+    <wsdl:part name="parameters" element="tns:DiagonalDifferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="StairCaseSoapIn">
+    <wsdl:part name="parameters" element="tns:StairCase" />
+  </wsdl:message>
+  <wsdl:message name="StairCaseSoapOut">
+    <wsdl:part name="parameters" element="tns:StairCaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AlgorithmsWebServiceSoap">
+    <wsdl:operation name="Sum">
+      <wsdl:input message="tns:SumSoapIn" />
+      <wsdl:output message="tns:SumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SimpleArraySum">
+      <wsdl:input message="tns:SimpleArraySumSoapIn" />
+      <wsdl:output message="tns:SimpleArraySumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompareTheTriplets">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">compare values of different arrays</wsdl:documentation>
+      <wsdl:input message="tns:CompareTheTripletsSoapIn" />
+      <wsdl:output message="tns:CompareTheTripletsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DiagonalDifference">
+      <wsdl:input message="tns:DiagonalDifferenceSoapIn" />
+      <wsdl:output message="tns:DiagonalDifferenceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StairCase">
+      <wsdl:input message="tns:StairCaseSoapIn" />
+      <wsdl:output message="tns:StairCaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AlgorithmsWebServiceSoap" type="tns:AlgorithmsWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Sum">
+      <soap:operation soapAction="http://tempuri.org/Sum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SimpleArraySum">
+      <soap:operation soapAction="http://tempuri.org/SimpleArraySum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareTheTriplets">
+      <soap:operation soapAction="http://tempuri.org/CompareTheTriplets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiagonalDifference">
+      <soap:operation soapAction="http://tempuri.org/DiagonalDifference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StairCase">
+      <soap:operation soapAction="http://tempuri.org/StairCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AlgorithmsWebServiceSoap12" type="tns:AlgorithmsWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Sum">
+      <soap12:operation soapAction="http://tempuri.org/Sum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SimpleArraySum">
+      <soap12:operation soapAction="http://tempuri.org/SimpleArraySum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareTheTriplets">
+      <soap12:operation soapAction="http://tempuri.org/CompareTheTriplets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiagonalDifference">
+      <soap12:operation soapAction="http://tempuri.org/DiagonalDifference" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StairCase">
+      <soap12:operation soapAction="http://tempuri.org/StairCase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AlgorithmsWebService">
+    <wsdl:port name="AlgorithmsWebServiceSoap" binding="tns:AlgorithmsWebServiceSoap">
+      <soap:address location="http://localhost:57864/AlgorithmsWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AlgorithmsWebServiceSoap12" binding="tns:AlgorithmsWebServiceSoap12">
+      <soap12:address location="http://localhost:57864/AlgorithmsWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
