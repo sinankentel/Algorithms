@@ -16,6 +16,7 @@ namespace Algorithms
     // [System.Web.Script.Services.ScriptService]
     public class AlgorithmsWebService : System.Web.Services.WebService
     {
+        // push test
         //web servisler dışarıdan call edilebilir ve dışarıya dönülebilir formatta olmalı.
         #region simple test metots
         [WebMethod]
